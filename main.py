@@ -14,3 +14,8 @@ def home():
   if url:
     return (requests.get(url).text)
   return Response(requests.get(random.choice(random_image_url)), mimetype="image/png")
+
+@app.route('/log')
+def log():
+  with open('web.log', 'r') as f:
+    return Response(f.read(), mimetype="text/plain")
