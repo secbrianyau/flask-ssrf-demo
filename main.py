@@ -2,6 +2,7 @@ from flask import *
 import requests, random, os
 
 app = Flask(__name__)
+static_header = { "Application-Source", "https://github.com/secbrianyau/flask-ssrf-demo/" }
 
 @app.route('/')
 def home():
@@ -13,13 +14,13 @@ def home():
   url = request.args.get('url', '')
   if url:
     return (requests.get(url).text)
-  return Response(requests.get(random.choice(random_image_url)), mimetype="image/png")
+  return Response(requests.get(random.choice(random_image_url)), headers=static_header, mimetype="image/png")
 
 @app.route('/log')
 def log():
   with open('web.log', 'r') as f:
-    return Response(f.read(), mimetype="text/plain")
+    return Response(f.read(), headers=static_header, mimetype="text/plain")
 
 @app.route('/favicon.ico')
 def favicon():
-  return Response('favicon.ico', mimetype='image/vnd.microsoft.icon')
+  return Response('favicon.ico', headers=static_header, mimetype='image/vnd.microsoft.icon')
