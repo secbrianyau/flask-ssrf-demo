@@ -2,7 +2,7 @@ from flask import *
 import requests, random, os
 
 app = Flask(__name__)
-static_header = { "Application-Source", "https://github.com/secbrianyau/flask-ssrf-demo/" }
+static_header = { "Application-Source": "https://github.com/secbrianyau/flask-ssrf-demo/" }
 
 @app.route('/')
 def home():
