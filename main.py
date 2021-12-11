@@ -22,4 +22,4 @@ def log():
 
 @app.route('/favicon.ico')
 def favicon():
-  return Response(send_from_directory(os.path.join(app.root_path, ''), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+  return Response('favicon.ico', mimetype='image/vnd.microsoft.icon')
