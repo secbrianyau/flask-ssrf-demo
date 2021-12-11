@@ -1,1 +1,7 @@
-# flask-ssrf-demo
+# Vulnerable Flask Application - Demo
+
+## Installation
+
+```
+
+```
